@@ -11,3 +11,16 @@ There are multiple roles in the app, as well as log in and log out functionaliti
 
 ## Lesson 50) Overview of Templates:
 
+We'll start by looking through the template files provided to start this project.
+There are 8 template files that'll comprise the parts of the app that a user will be able to go to.
+We have the home template with a list of questions already answered by an expert.
+Then registration page for users to register to the app.
+A log in page for registered users to log in.
+The Ask a Question template page, lets you type in a question and select an expert to ask, then submit.
+The Answer page for experts to answer questions directed to them.
+The Question template page to view a question and answer and relevant details.
+An unanswered questions page for an expert to view all the unanswered questions directed at them.
+Lastly, there's a User List page wherein an admin can manage the users and experts in the page.
+
+## Lesson 51) Install and Templates
+
