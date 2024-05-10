@@ -1,0 +1,13 @@
+# The Question-Answer App
+
+## Lesson 49) Demo
+
+The app we'll be making allows users to ask questions and allows promoted experts to answer asked questions.
+A logged in user can ask questions directed to experts, and when that expert logs in they can see all the questions that
+were directed to them.
+Once they answer the question, that question will be shown on the home screen with a list of other questions and when you 
+click on a question, you can view the answer to the question.
+There are multiple roles in the app, as well as log in and log out functionalities.
+
+## Lesson 50) Overview of Templates:
+
