@@ -24,3 +24,20 @@ Lastly, there's a User List page wherein an admin can manage the users and exper
 
 ## Lesson 51) Install and Templates
 
+This lesson covers all the up front initializations done for this lesson.
+Including the app.py, virtual environment setup first, including installing flask.
+We'll then download the html and css files from the lesson resources and move them into the templates and static folders appropriately.
+We'll now go ahead and set up our base routes to work with for the various pages going forward.
+For now each route function will be a pass, as we're just looking to initialize each route first.
+In total, we'll have created 8 routes.
+Having set up the routes we can now configure the routes to return the relevant template for each one.
+Having set up the render_templates for each route we'll do a test run of the app, and upon loading the pages up we can see the styling
+is incorrect, which implies the css files are not linked to the html files.
+So next we'll go to each of the templates and update the static files to reference the styling correctly.
+Remember to use url_for to reference the stylesheets.
+Having done this we'll re-run the app to test a page and confirm the stylesheets are being referenced correctly.
+Note that there are 3 css files supplied in the course resources, the one named "bootstrap-theme" isn't used, and would
+otherwise be deleted, but in this case will be kept.
+
+## Lesson 52) Database Helpers
+
