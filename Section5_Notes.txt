@@ -43,3 +43,9 @@ otherwise be deleted, but in this case will be kept.
 
 Before actually creating the database we'll be using for this app, we'll create the database helper functions for 
 accessing the database (connect_db and get_db).
+These are being stored in a separate file named database.py and we'll then import get_db in the app (as it's the only function we directly call)
+Once the database has been created we'll get the path to the database and add it in the connect_db function.
+Lastly, we'll add the @app.teardown decorator to automatically close any open connection to the database upon route commpletion.
+
+## Lesson 53) Creating the Database:
+
