@@ -41,3 +41,5 @@ otherwise be deleted, but in this case will be kept.
 
 ## Lesson 52) Database Helpers
 
+Before actually creating the database we'll be using for this app, we'll create the database helper functions for 
+accessing the database (connect_db and get_db).
