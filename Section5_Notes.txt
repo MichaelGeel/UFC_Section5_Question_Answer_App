@@ -62,3 +62,33 @@ even though nothing is returned.
 
 ## Lesson 54) Register User:
 
+We'll now set up the register user route so we can register users into the database.
+Firstly, in the register page template, we'll give the form a method and action, namely post and to call itself.
+Next we'll change the names of the inputs as the form inputs get submitted by name and not id.
+Having done this we'll now test if the submit works before continuing, which we'll check the request type to determine the output.
+We'll also include logic to capture the name and password from the form to ensure that those values are being passed in the post request as well.
+Having confirmed that the form is submitting, we'll now go ahead and write the code to register the user into the database.
+We'll now need to import a library to allow for password hashing, which is basicaly taking a certain password and converting
+it into a form that cannot be used to convert back to the original.
+So you hash the password to get a long string of characters and then every time someone logs in, you hash the entered password 
+and compare it to the originally hashed password to see if it's a match.
+If they match, the user is logged in, if not, prompt the user to re-enter their password.
+This is done because if the database is broken into for some reason, there won't be plaintext passwords that are easy to steal.
+Note that password hashing doesn't mean you're 100% secure, nothing is completely secure, but it's better than not having it.
+To handle the hashing, we'll import from a library called werkzeug which is what flask is built ontop of, so no installation is required.
+From werkzeug we'll be importing 2 security functions:
+    "from werkzeug.security import generate_password_hash, check_password_hash"
+So now we'll get going with inserting the data to the database.
+We'll get the db connection and write the insert query to execute.
+When inserting the password into the database, we'll hash it using the generate_password_hash function.
+    "hashed_password = generate_password_hash(password, method="pbkdf2")"
+Note when generating a password hash, we have to provide the string we're hashing as well as the hashing method, which 
+in this case is "pbkdf2".
+###Note that in the video, "sha256" is used, but this is deprecated so we'll use the listed method.
+A new user will be assigned the lowest accessibility tier, so expert and admin will be 0.
+Expert will be obtained by getting promoted by the admin in the users screen, and the admin rights are gained through backend access 
+into the database.
+We'll then commit the data to the database.
+Finally, we'll change the return statement to reflect "User created".
+We'll now go ahead and attempt to create a user.
+Note that we also needed to go back to the connect_db function to include the path to our database.
