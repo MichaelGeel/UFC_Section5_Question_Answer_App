@@ -49,3 +49,16 @@ Lastly, we'll add the @app.teardown decorator to automatically close any open co
 
 ## Lesson 53) Creating the Database:
 
+We'll now be creating the actual database, and to do this, we'll first create the schema, in a file called schema.sql.
+Our data model will simply have 2 tables, users and questions.
+We could make the data model more complex, but it's entirely unnecessary so we'll keep it simple as is.
+Note that in the questions table, the answer_text field we're creating is allowed to be null as a question cannot have an answer upon creation.
+All other data points are not null.
+We could also make use of foreign keys, but again it's not necessary given the data model.
+Having done this we'll now go ahead and get our database created by executing the schema.
+    "cat schema.sql | sqlite3 questions.db"
+That should successfully create the database, then from there we go in and confirm the tables are there alongside being able to query the tables, 
+even though nothing is returned.
+
+## Lesson 54) Register User:
+
