@@ -92,3 +92,9 @@ We'll then commit the data to the database.
 Finally, we'll change the return statement to reflect "User created".
 We'll now go ahead and attempt to create a user.
 Note that we also needed to go back to the connect_db function to include the path to our database.
+Once we've successfully created a user, we'll go verify the data inside the database itself as well.
+Having verified the user is there, we'll also go ahead and promote this user to admin as we'll need the admin user for future functionalities that we'll be 
+building out.
+
+## Lesson 55) Login:
+
