@@ -98,3 +98,25 @@ building out.
 
 ## Lesson 55) Login:
 
+While the register route is still incomplete we're going to move on to creating the log in functionality now.
+So we need to capture the log in information from the log in form and then from there see if the user actually exists.
+First off, we'll create the submit form action and method in the login html template.
+In the previous lesson we set the register action to be just "/register" and while this does work we're going to alter that
+to use the url_for method of redirecting.
+While once again give the inputs names.
+We'll set the route to accept both get and post requests.
+At this point we'll take a moment to test that our code is working.
+Our next steps after testing is to now take the name passed in in the login form and query the database to find that user.
+We're going to get the row in the database that has the name passed in the form, then we'll compare the saved and entered passwords (in hashed format)
+to see if the user can be logged in.
+We're going to assume each user name is unique in the database so we'll use a fetchone method to get the results from the cursor.
+For now, we'll return the entered password to verify that we're retrieving the data successfully and test.
+Note that at the moment, if we enter an incorrect value, the app will error out as it returns a NoneType.
+Now we need to check that the entered password and database password match, and we'll use the check_password_hash function for that.
+It takes in the saved hashed password, and the user's entered password to see if they match and returns the appropriate boolean value.
+Note that in check_password_hash, you always first pass the hashed password, then the plaintext password.
+Now we'll use the check in a simple if statement, and if there's a match, we'll give a simple output indicating as such for now and
+and else if it's wrong.
+
+## Lesson 56) Sessions:
+

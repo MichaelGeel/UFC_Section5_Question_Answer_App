@@ -37,9 +37,24 @@ Users in the database:
 -adpword
 """
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    
+
+    if request.method == 'POST':
+        db = get_db()
+
+        name = request.form['name']
+        password = request.form["password"]
+
+        user_cursor = db.execute('select id, name, password from users where name = ?', [name])
+        user_result = user_cursor.fetchone()
+
+        if check_password_hash(user_result['password'], password):
+            return "<h1>The password is correct</h1>"
+        else:
+            return "<h1>The password is incorrect</h1>"
+
+
     return render_template('login.html')
 
 @app.route('/question')
