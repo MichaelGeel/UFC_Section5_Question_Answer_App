@@ -120,3 +120,21 @@ and else if it's wrong.
 
 ## Lesson 56) Sessions:
 
+We're now going to work on creating a session wherever a user logs in successfully.
+We're going to import session from flask and the os module to allow us to generate a random string which will be used 
+for the configuration value of the secret key.
+We'll the create the secret key in the app.config using os.urandom(24) to generate a random unicode string of 24 characters 
+that will be our secret key.
+Then in the log in route, upon successful login, the session will be created, and it'll house the name of the user who logged in.
+Now to test if the session is being created successfully, in the index route, we'll pass the name of the currently logged in user, 
+by looking at the session and if the name exists, we'll change the home template slightly.
+To do this well run an if statement checking for the key "user" in session.
+Now in the home template, in the navbar ul element, we'll encompass the Login item in an if statement where if there's a user in the session,
+the login item won't appear as the user is already logged in.
+Similarly, we'll encapsulate the Logout item in an if so that only if a user is logged in it'll appear.
+Now if we test the application, if we load the home route we shouldn't see the logout item, and then login and return to the home route, 
+the login item won't be there.
+Now we'll work on the log out route to allow a user to log out and remmove them from the session.
+Firstly, we'll create the route for the logout functionality.
+In this route we'll simply pop the user out of the session and redirect them to the home page.
+Lastly, we need to add the route link address to the log out and log in buttons in the navbar of the home page.
