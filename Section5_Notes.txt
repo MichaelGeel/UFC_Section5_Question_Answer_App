@@ -138,3 +138,23 @@ Now we'll work on the log out route to allow a user to log out and remmove them 
 Firstly, we'll create the route for the logout functionality.
 In this route we'll simply pop the user out of the session and redirect them to the home page.
 Lastly, we need to add the route link address to the log out and log in buttons in the navbar of the home page.
+Note that a user is effectively logged out when they are no longer in the session of the web app.
+And with one last test, we should be able to now confirm being able to log in and out of the app.
+
+## Lesson 57) Common User Function:
+
+So we need to be checking if the user is logged in in every route, but rewriting the code in every route is inefficient, 
+instead, we'll create a function that returns all information about the user if they're logged in.
+We'll check for a user like we did in the index route, if they're found, we'll search the database for all the information of that user.
+We'll use a very similar query to what we had in the login route for fetching the user info, but we'll also fetch the 
+expert and admin status as well as we'll be using that info to identify what is available to the logged in user.
+Note that querying the db for the user only applies if there's an active user logged in.
+So now that we have a user_result from the db, we can ascertain if a user is logged in based on whether this result exists or not.
+Then we'll return the user_result, and so any route that needs the current user can just call this function.
+So we'll test this by replacing the existing code in the index route to instead call the new function.
+Note that in the templates we only check to see if the user exists, so we don't need to pass anything specific to the template and can just 
+pass the entire results variable to it.
+So we're get to copy the function call to every route in our app now minus the logout route, because we'll need to know who the logged in user is in all our route.
+
+## Lesson 58) Updating Links
+
