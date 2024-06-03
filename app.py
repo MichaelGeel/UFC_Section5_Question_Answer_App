@@ -120,7 +120,27 @@ def unanswered():
 def users():
     user = get_current_user()
 
-    return render_template('users.html', user=user)
+    db = get_db()
+    users_cur = db.execute('select id, name, expert, admin from users;')
+    users_results = users_cur.fetchall()
+
+    return render_template('users.html', user=user, users=users_results)
+
+@app.route('/promote/<user_id>')
+def promote(user_id):
+
+    db = get_db()
+    promo_cur = db.execute("select id, name, expert from users where id = ?", [user_id])
+    promo_result = promo_cur.fetchone()
+
+    if promo_result['expert'] == 1:
+        db.execute("UPDATE users set expert = 0 where id = ?", [user_id])
+    else:
+        db.execute("UPDATE users set expert = 1 where id = ?", [user_id])
+    
+    db.commit()
+
+    return redirect(url_for('users'))
 
 @app.route('/logout')
 def logout():

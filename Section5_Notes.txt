@@ -181,3 +181,19 @@ though for the login route we're only going to redirect a user if the password e
 
 ## Lesson 60) User Setup Page:
 
+So for the user setup screen, we want to be able to click on a user's name and then promote that use.
+So to start off we need to fetch all the users in the database, and then pass it to the template.
+In the template we'll loop over the list to display all users in the database to the admin along with their current status in terms of roles granted.
+We'll test functionality before continuing further.
+Now for the user's list, there are 2 different classes available, the only difference being the word 'active' between them,
+and this determines the colour the user appears in, and is determined by whether the user is an expert or not.
+So we'll encapsulate the 'active' word in an if statement that'll determine what class is used.
+Then lastly, we need to add a link to each user that promotes the user.
+So we're going to create a new route called 'promote' for this, and each user will pass their id to this route wherein the user will be promoted to expert,
+and afterwards it'll redirect to the users page to show confirmation of the user having been promoted.
+It'll also hold the functionality where if a user is already and expert and it gets clicked then the user gets demoted instead.
+We'll do another test to confirm both promote and demote functionality.
+And having completed this successfully, we can use the promoted expert user to now also confirm the remaining link checks we had outstanding.
+
+## Lesson 61) Create Question:
+
