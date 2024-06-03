@@ -172,3 +172,12 @@ So we'll have to get those requirements implemented then pick up with our testin
 
 ## Lesson 59) Creating Test Users:
 
+In this lesson we're just creating 2 users for further testing for our app.
+One will be a regular user and one will be an expert user, but the expert user will only become an expert in the following lesson,
+where we'll build up the functionality to promote a user.
+We're also going to update the register route to add a created user to the session so that they don't have to log in right after user creation.
+We'll also update the return on user created register route to redirect to the home page, and we'll do the same for the log in route too,
+though for the login route we're only going to redirect a user if the password entered is correct.
+
+## Lesson 60) User Setup Page:
+

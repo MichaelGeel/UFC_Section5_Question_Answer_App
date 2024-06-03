@@ -45,7 +45,9 @@ def register():
                    )
         db.commit()
         
-        return "<h1>User Created</h1>"
+        session['user'] = request.form['name']
+
+        return redirect(url_for('index'))
     
     return render_template('register.html', user=user)
 
@@ -83,7 +85,7 @@ def login():
 
             session['user'] = user_result['name']
 
-            return "<h1>The password is correct</h1>"
+            return redirect(url_for('index'))
         else:
             return "<h1>The password is incorrect</h1>"
 
