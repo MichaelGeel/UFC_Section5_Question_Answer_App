@@ -156,5 +156,19 @@ Note that in the templates we only check to see if the user exists, so we don't 
 pass the entire results variable to it.
 So we're get to copy the function call to every route in our app now minus the logout route, because we'll need to know who the logged in user is in all our route.
 
-## Lesson 58) Updating Links
+## Lesson 58) Updating Links:
+
+Our navbar links will have the same URL's on every page and what links are visible will be different depending on the type of user that's logged in.
+In the video, the ask page is limited to regular users, but I'm opting to keep it available for all users as anyone can have questions.
+With the routes that are for experts or admins only, we do a check to see if the user is logged in fist then we check if they're an expert/admin.
+This is for lazy evaluation because if the user doesn't exist/isn't logged in then it won't try to look for an admin/expert status which could error out the program.
+Basically it's a cheat to get around the "NoneType is not subscriptale" error that could be incurred by the expert/admin check.
+So before copying the link setup to the other templates, we'll first have to check that they all work properly.
+Lastly we'll ensure all the links actually link you to the respective route and page and then we should be good to go to copy them to the other templates.
+Then we'll update the routes to match what we've done in the home template regarding getting the user from the session and passing that to the template.
+This is because this is the only way for the template to know if the user is logged in.
+However we can't currently able to test all our links as we have no way of promoting users yet (the functionality not set up yet.)
+So we'll have to get those requirements implemented then pick up with our testing.
+
+## Lesson 59) Creating Test Users:
 

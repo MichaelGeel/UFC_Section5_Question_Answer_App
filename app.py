@@ -47,7 +47,7 @@ def register():
         
         return "<h1>User Created</h1>"
     
-    return render_template('register.html')
+    return render_template('register.html', user=user)
 
 """
 Users in the database:
@@ -55,6 +55,14 @@ Users in the database:
 ####Admin:
 -Mikey
 -adpword
+
+####Expert:
+-Expy
+-expword
+
+####Regular:
+-Reggie
+-rgpword 
 """
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -80,37 +88,37 @@ def login():
             return "<h1>The password is incorrect</h1>"
 
 
-    return render_template('login.html')
+    return render_template('login.html', user=user)
 
 @app.route('/question')
 def question():
     user = get_current_user()
 
-    return render_template('question.html')
+    return render_template('question.html', user=user)
 
 @app.route('/answer')
 def answer():
     user = get_current_user()
 
-    return render_template('answer.html')
+    return render_template('answer.html', user=user)
 
 @app.route('/ask')
 def ask():
     user = get_current_user()
 
-    return render_template('ask.html')
+    return render_template('ask.html', user=user)
 
 @app.route('/unanswered')
 def unanswered():
     user = get_current_user()
 
-    return render_template('unanswered.html')
+    return render_template('unanswered.html', user=user)
 
 @app.route('/users')
 def users():
     user = get_current_user()
 
-    return render_template('users.html')
+    return render_template('users.html', user=user)
 
 @app.route('/logout')
 def logout():
