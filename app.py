@@ -63,6 +63,10 @@ Users in the database:
 -expword
 
 ####Regular:
+-Bobobo
+-Bobobo
+
+####Regular:
 -Reggie
 -rgpword 
 """
@@ -104,11 +108,23 @@ def answer():
 
     return render_template('answer.html', user=user)
 
-@app.route('/ask')
+@app.route('/ask', methods=['GET', 'POST'])
 def ask():
     user = get_current_user()
+    db = get_db()
 
-    return render_template('ask.html', user=user)
+    if request.method == 'POST':
+
+        db.execute('INSERT into questions (question_text, asked_by_id, expert_id) values (?, ?, ?)',
+                   [request.form['question'], user['id'], request.form['expert']])
+        db.commit()
+
+        return redirect(url_for('index'))
+
+    experts_cur = db.execute('select id, name from users where expert = 1;')
+    experts_result = experts_cur.fetchall()
+
+    return render_template('ask.html', user=user, experts=experts_result)
 
 @app.route('/unanswered')
 def unanswered():

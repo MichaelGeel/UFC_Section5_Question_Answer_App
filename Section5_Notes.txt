@@ -197,3 +197,24 @@ And having completed this successfully, we can use the promoted expert user to n
 
 ## Lesson 61) Create Question:
 
+This lesson will covering the functionality for users to be able to ask a question to a specific expert.
+Looking at the Ask a Question page, we have a text box where the user can ask a question, and then we have a select box 
+where the user can select the expert to ask the question to, finally there's a submit button whereby the user will submit the question.
+So our first task is to retrieve all experts in the database to display in the select box.
+We'll pass the results retrieved from the database to the template, where we can implement a for loop to loop through the results and display them in the 
+select box.
+We'll then test to see if the experts on the database show up on the select box dropdown in the page.
+NOTE: Remember to inspect the select box so that we can confirm that the values are being pulled through correctly as well.
+Note that since this is a form that's going to be submitted, we also need to give the textarea and select box names to go with their values for retrieval after submission.
+And since we've successfully pulled the actual experts in, we can remove the demo ones from the template.
+We'll also need to give our form the action and method for submission as well, and since our method will be a POST, we'll need to set the /ask route 
+to accept both GET and POST request methods.
+Then we'll test to see that the data is being successfully passed to the route via POST request.
+And having confirmed that it is, we can now include the functionality to be able save these questions to the database.
+For saving to the database, because these questions are unanswered we won't be saving anything the the answer_text value.
+We'll need to fetch the currently logged in user, as well as the usual db connections.
+Now we'll test this and then look at the database to see if a question is being saved successfully.
+Lastly, instead of us returning the question text on screen we're going to redirect the user to the home page.
+
+## Lesson 62) List Questions:
+
