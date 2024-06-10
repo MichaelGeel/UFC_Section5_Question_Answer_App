@@ -130,7 +130,14 @@ def ask():
 def unanswered():
     user = get_current_user()
 
-    return render_template('unanswered.html', user=user)
+    db = get_db()
+    questions_cur = db.execute("""select q.id, q.question_text, u.name \
+                               from questions as q\
+                               inner join users as u on q.asked_by_id = u.id\ 
+                               where q.answer_text is null AND q.expert_id = ?""", [user['id']])
+    questions_result = questions_cur.fetchall()
+
+    return render_template('unanswered.html', user=user, questions=questions_result)
 
 @app.route('/users')
 def users():

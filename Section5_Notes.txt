@@ -218,3 +218,14 @@ Lastly, instead of us returning the question text on screen we're going to redir
 
 ## Lesson 62) List Questions:
 
+We'll now implement the functionality to view all unanswered questions for each expert.
+This basically involves implementing a query that fetches all questions from the database without answers for a particular expert by expert id.
+We needed to do a quick link update in all the templates as the Answer Question linked to the wrong route.
+Note in the query we'll need to join in the users table as we reference who asked the question by user name.
+In the template we'll implement a for loop to loop over the question results for unanswered questions.
+Now we'll build out the query to fetch the questions and then pass it too our template.
+Note the href for each question still hasn't been built out, which we'll add later, will likely call url_for into the answer route and pass it the question id to answer that particular question.
+
+## Lesson 63) Answer Question:
+
+This lesson will look at building out the functionality for the expert to answer their unanswered questions.
